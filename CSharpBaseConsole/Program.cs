@@ -13,54 +13,72 @@ namespace CSharpBaseConsole
     {
         static void Main(string[] args)
         {
-
-            //TestException TE = new TestException();
-
-            bool isUserInputValid = false;
-            string s = null;
-            int i = 0;
-
-            while (!isUserInputValid)
+            Console.WriteLine("Bonjour !");
+            Console.WriteLine("Debut du calcul");
+            Console.WriteLine("Fin du calcul");
+            double resultatDivision = 0.0d;
+            try
             {
-                try
-                {
-                    
-                    if (s == null)
-                    {
-                        Console.WriteLine("Entrez une chaine de caractere");
-                        s = Console.ReadLine();
-                    }
-
-                    
-
-                    if ( i == 0)
-                    {
-                        Console.WriteLine("Entrez un nombre");
-                        i = int.Parse(Console.ReadLine());
-                    }
-
-                    Console.WriteLine("Les variables saisies sont : " + s + " et " + i);
-                    TestException TE = new TestException(s, i);
-                    Console.WriteLine("Nouvel Objet cree avec succes");
-                    //TE.TestString = Console.ReadLine();
-                    isUserInputValid = true;
-                }
-                catch (FirstException firstException)
-                {
-                    Console.WriteLine("Erreur : " + firstException.Message);
-                    s = null;
-                }
-                catch (SecondException secondException)
-                {
-                    Console.WriteLine("Erreur : " + secondException.Message + "Paramètre :" + secondException.ParamName);
-                    i = 0;
-                }
-
+                resultatDivision = Fonctions.Divise(6, 0);
+            } catch (Exception e)
+            {
+                Console.WriteLine("Erreur : " + e.Message);
+                Console.WriteLine("Type Exception : " + e.GetType());
             }
-
+            
+            Console.WriteLine("Resultat : "+ resultatDivision);
             Console.ReadKey(true);
-
         }
+        //static void Main(string[] args)
+        //{
+
+        //    //TestException TE = new TestException();
+
+        //    bool isUserInputValid = false;
+        //    string s = null;
+        //    int i = 0;
+
+        //    while (!isUserInputValid)
+        //    {
+        //        try
+        //        {
+
+        //            if (s == null)
+        //            {
+        //                Console.WriteLine("Entrez une chaine de caractere");
+        //                s = Console.ReadLine();
+        //            }
+
+
+
+        //            if ( i == 0)
+        //            {
+        //                Console.WriteLine("Entrez un nombre");
+        //                i = int.Parse(Console.ReadLine());
+        //            }
+
+        //            Console.WriteLine("Les variables saisies sont : " + s + " et " + i);
+        //            TestException TE = new TestException(s, i);
+        //            Console.WriteLine("Nouvel Objet cree avec succes");
+        //            //TE.TestString = Console.ReadLine();
+        //            isUserInputValid = true;
+        //        }
+        //        catch (FirstException firstException)
+        //        {
+        //            Console.WriteLine("Erreur : " + firstException.Message);
+        //            s = null;
+        //        }
+        //        catch (SecondException secondException)
+        //        {
+        //            Console.WriteLine("Erreur : " + secondException.Message + "Paramètre :" + secondException.ParamName);
+        //            i = 0;
+        //        }
+
+        //    }
+
+        //    Console.ReadKey(true);
+
+        //}
 
         //static void Main(string[] args)
         //{
